@@ -1,18 +1,34 @@
 package com.shubhambharti.productservice.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
 public class Product {
-    private String id;
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String title;
+    private String image;
     private String description;
     private double price;
-    private String CategoryId;
+    private String Category;
     public Product() {
     }
-    public Product(String id, String name, String description, double price, String categoryId) {
+    public Product(int id, String title, String description, double price, String category) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.description = description;
         this.price = price;
-        CategoryId = categoryId;
+        Category = category;
     }
 }
