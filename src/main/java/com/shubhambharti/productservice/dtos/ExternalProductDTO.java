@@ -1,5 +1,6 @@
 package com.shubhambharti.productservice.dtos;
 
+import com.shubhambharti.productservice.models.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -11,10 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ExternalProductDTO {
 
-    private int id;
+    private long id;
     private String title;
     private double price;
     private String description;
-    private String category;
+    private Category category;
     private String image;
 }
