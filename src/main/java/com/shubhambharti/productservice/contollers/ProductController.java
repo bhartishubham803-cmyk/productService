@@ -33,9 +33,19 @@ public class ProductController {
         return fakeStoreProductService.getAllProducts();
     }
     @PostMapping("/products")
-    public void createProduct(@RequestBody ProductRequestDTO productRequestDTO) {
+    Product createProduct(@RequestBody ProductRequestDTO productRequestDTO) {
+        return fakeStoreProductService.createProduct(
+                productRequestDTO.getTitle(),
+                productRequestDTO.getDescription(),
+                productRequestDTO.getPrice(),
+                productRequestDTO.getCategory(),
+                productRequestDTO.getImage()
+
+        );
 
     }
+
+
 
     /*
     We got an exception but we don't want to send the stack trace to the client
@@ -43,7 +53,6 @@ public class ProductController {
         2. We can have a global exception handler using @ControllerAdvice
         3. We can have a local exception handler using @ExceptionHandler
      */
-
 
 
 }

@@ -3,6 +3,7 @@ package com.shubhambharti.productservice.models;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Product  extends BaseModel {
 
     private String title;
@@ -19,8 +21,4 @@ public class Product  extends BaseModel {
     private Category category;
     private String image;
 
-
-    public Product() {
-
-    }
 }
