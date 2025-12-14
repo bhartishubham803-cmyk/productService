@@ -1,22 +1,17 @@
-package com.shubhambharti.productservice.contollers;
+package com.shubhambharti.productservice.controllers;
 
 
-import com.shubhambharti.productservice.dtos.ProductNotFoundErrorDTO;
 import com.shubhambharti.productservice.dtos.ProductRequestDTO;
 import com.shubhambharti.productservice.exceptions.ProductNotFoundException;
 import com.shubhambharti.productservice.models.Product;
 import com.shubhambharti.productservice.services.FakeStoreProductService;
-import com.shubhambharti.productservice.services.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class ProductController {
+public class FakeProductController {
 
     @Autowired
     FakeStoreProductService fakeStoreProductService;
