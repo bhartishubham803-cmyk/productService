@@ -2,6 +2,9 @@ package com.shubhambharti.productservice.dtos;
 
 import com.shubhambharti.productservice.models.Category;
 import com.shubhambharti.productservice.models.Product;
+import lombok.Getter;
+import lombok.Setter;
+
 
 public class FakeStoreProductDTO {
     private Long id;
@@ -58,6 +61,7 @@ public class FakeStoreProductDTO {
     public void setImage(String image) {
         this.image = image;
     }
+
     public Product toProduct(){
         Product product = new Product();
         product.setId(this.id);

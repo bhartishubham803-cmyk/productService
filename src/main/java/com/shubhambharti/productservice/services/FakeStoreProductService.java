@@ -1,12 +1,10 @@
 package com.shubhambharti.productservice.services;
 
-import com.shubhambharti.productservice.dtos.ExternalProductDTO;
 import com.shubhambharti.productservice.dtos.FakeStoreProductDTO;
 import com.shubhambharti.productservice.exceptions.ProductNotFoundException;
+import com.shubhambharti.productservice.models.Category;
 import com.shubhambharti.productservice.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,7 +19,7 @@ public class FakeStoreProductService implements ProductService {
     @Autowired
     private RestTemplate restTemplate;
     @Override
-    public Product getProductById(int id) throws ProductNotFoundException {
+    public Product getProductById(long id) throws ProductNotFoundException {
         FakeStoreProductDTO response =restTemplate.getForObject(EXTERNAL_API + "/" + id, FakeStoreProductDTO.class);
 
         if(response == null) {
@@ -45,12 +43,12 @@ public class FakeStoreProductService implements ProductService {
     }
 
     @Override
-    public Product createProduct(String title, String description, double price, String categoryName, String imageUrl) {
+    public Product createProduct(String title, String description, double price, Category categoryName, String imageUrl) {
        FakeStoreProductDTO fakeStoreProductDTO = new FakeStoreProductDTO();
         fakeStoreProductDTO.setTitle(title);
         fakeStoreProductDTO.setDescription(description);
         fakeStoreProductDTO.setPrice(price);
-        fakeStoreProductDTO.setCategory(categoryName);
+        fakeStoreProductDTO.setCategory(categoryName.getName());
         fakeStoreProductDTO.setImage(imageUrl);
         FakeStoreProductDTO fakeStoreProductDTO1 = restTemplate.postForObject(EXTERNAL_API, fakeStoreProductDTO, FakeStoreProductDTO.class);
         if(fakeStoreProductDTO1 == null) {

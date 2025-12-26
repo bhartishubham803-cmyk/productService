@@ -15,12 +15,12 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createdAt;//if i add long you can use long for storing time in the form of epoch
     @LastModifiedDate
-    private LocalDateTime updatedAt;
+    private LocalDateTime lastUpdatedAt;
     private Boolean isDeleted = false;
 }

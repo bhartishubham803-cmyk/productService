@@ -8,16 +8,16 @@ import lombok.Setter;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
+@Table(name = "product")
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Product  extends BaseModel {
 
     private String title;
     private String description;
     private double price;
     @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
     private String image;
 
