@@ -33,7 +33,7 @@ public class FakeProductController {
                 productRequestDTO.getTitle(),
                 productRequestDTO.getDescription(),
                 productRequestDTO.getPrice(),
-                productRequestDTO.getCategory(),
+                productRequestDTO.getCategoryName(),
                 productRequestDTO.getImage()
 
         );

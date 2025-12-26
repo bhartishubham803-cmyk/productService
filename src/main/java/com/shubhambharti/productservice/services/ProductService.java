@@ -13,6 +13,6 @@ public interface ProductService {
 
 
     List<Product> getAllProducts();
-    Product createProduct(String title, String description, double price, Category category, String imageUrl) ;
+    Product createProduct(String title, String description, double price, String categoryName, String imageUrl) ;
 
 }

@@ -35,7 +35,8 @@ public class SelfProductService implements ProductService {
     public Product createProduct(String title,
                                  String description,
                                  double price,
-                                 Category category, String imageUrl) {
+                                 String categoryName,
+                                 String imageUrl) {
 
         Product product = new Product();
         product.setTitle(title);
@@ -43,27 +44,19 @@ public class SelfProductService implements ProductService {
         product.setPrice(price);
         product.setImage(imageUrl);
 
-        if (category.getId() != null) {
-            Optional<Category> categoryOptional = categoryRepository.findById(category.getId());
-            if(categoryOptional.isEmpty()){
-                //exception
-            }
-            product.setCategory(categoryOptional.get());
+        Category category = categoryRepository.findByName(categoryName);
+
+        if (category == null) {
+            category = new Category();
+            category.setName(categoryName);
+            category = categoryRepository.save(category);
         }
-        else {
-           Optional<Category>  categoryOptional = Optional.ofNullable(categoryRepository.findByName(category.getName()));
-           if(categoryOptional.isPresent()){
-               product.setCategory(categoryOptional.get());
-           }
-           else{
-               Category c = new Category();
-               c.setName(category.getName());
-               c=categoryRepository.save(c);
-               product.setCategory(c);
-           }
-        }
+
+        product.setCategory(category);
         return productRepository.save(product);
     }
+
+
 
 
 

@@ -9,6 +9,6 @@ public class ProductRequestDTO {
     private String title;
     private double price;
     private String description;
-    private Category category;
+    private String categoryName;
     private String image;
 }
