@@ -45,7 +45,7 @@ public class FakeProductController {
     /*
     We got an exception but we don't want to send the stack trace to the client
         1. We can handle the exception in the controller method itself
-        2. We can have a global exception handler using @ControllerAdvice
+        2. We can have a global exception handler using @GlobalExceptionHandler
         3. We can have a local exception handler using @ExceptionHandler
      */
 
